@@ -1,0 +1,131 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Habit Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div>
+            <h1>🌱 HabitFlow</h1>
+            <p>Build better habits, one day at a time.</p>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <h2>Your Daily Progress</h2>
+            <p>Small steps every day lead to big results.</p>
+        </section>
+
+        <!-- Calendar / Date Selection -->
+        <section class="card date-card">
+            <label for="selectedDate">📅 Select a date</label>
+            <input type="date" id="selectedDate">
+            <p id="dateMessage"></p>
+        </section>
+
+        <!-- Daily Progress -->
+        <section class="card progress-card">
+            <div class="progress-heading">
+                <div>
+                    <h2>Today's Progress</h2>
+                    <p id="progressText">0 of 0 habits completed</p>
+                </div>
+                <div class="percentage" id="percentage">0%</div>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+
+            <p id="motivation">Start your day with one small win! 💪</p>
+        </section>
+
+        <!-- Add New Habit -->
+        <section class="card">
+            <h2>➕ Create a New Habit</h2>
+
+            <form id="habitForm">
+                <label for="habitName">Habit name</label>
+                <input
+                    type="text"
+                    id="habitName"
+                    placeholder="e.g. Study for 2 hours"
+                    maxlength="80"
+                    required
+                >
+
+                <label for="habitCategory">Category</label>
+                <select id="habitCategory">
+                    <option value="📚 Study">📚 Study</option>
+                    <option value="💪 Fitness">💪 Fitness</option>
+                    <option value="📖 Reading">📖 Reading</option>
+                    <option value="💧 Health">💧 Health</option>
+                    <option value="🧘 Personal Growth">🧘 Personal Growth</option>
+                    <option value="✨ Other">✨ Other</option>
+                </select>
+
+                <button type="submit" class="add-btn">
+                    + Add Habit
+                </button>
+            </form>
+        </section>
+
+        <!-- Daily Habit List -->
+        <section class="card">
+            <div class="section-heading">
+                <div>
+                    <h2>My Habits</h2>
+                    <p>Check each habit when you complete it.</p>
+                </div>
+                <span class="habit-count" id="habitCount">0 habits</span>
+            </div>
+
+            <div id="habitList" class="habit-list"></div>
+
+            <div id="emptyMessage" class="empty-message">
+                <div class="empty-icon">🌿</div>
+                <h3>No habits yet!</h3>
+                <p>Create your first habit above to get started.</p>
+            </div>
+        </section>
+
+        <!-- Monthly Calendar -->
+        <section class="card">
+            <div class="calendar-heading">
+                <button id="prevMonth" class="calendar-nav"
+                    type="button" aria-label="Previous month">❮</button>
+                <h2 id="monthTitle">Month Year</h2>
+                <button id="nextMonth" class="calendar-nav"
+                    type="button" aria-label="Next month">❯</button>
+            </div>
+
+            <p class="calendar-info">
+                Select any day to see its habits and completion percentage.
+            </p>
+
+            <div class="calendar-grid" id="calendarGrid"></div>
+
+            <div class="calendar-legend">
+                <span><i class="legend-dot complete-dot"></i> 100% complete</span>
+                <span><i class="legend-dot partial-dot"></i> Partially complete</span>
+                <span><i class="legend-dot empty-dot"></i> No progress</span>
+            </div>
+        </section>
+
+        <footer>
+            <p>🌱 Consistency is more important than perfection.</p>
+            <p>Your progress is saved in this browser.</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
